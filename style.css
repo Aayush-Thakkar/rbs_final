@@ -263,7 +263,7 @@ img {
     width: 100%;
     padding: 0 20px;
     z-index: 3;
-    margin-top: 8rem;
+    margin-top: 25rem;
 }
 
 .hero-title {
@@ -947,18 +947,6 @@ img {
 .testimonials-track .testimonial-card {
     flex: 0 0 380px;
     scroll-snap-align: unset;
-}
-    display: flex;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    gap: 2rem;
-    padding-bottom: 2rem;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-}
-
-.testimonials-scroll::-webkit-scrollbar {
-    display: none;
 }
 
 .testimonial-card {

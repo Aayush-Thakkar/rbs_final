@@ -139,7 +139,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 5a. Stat Counter Animation
     const statEls = document.querySelectorAll('.stat h4[data-target]');
-    const suffixes = { '200': '+', '15': '+', '98': '%' };
+    const suffixes = { '25': '+', '3': '+', '98': '%' };
 
     const counterObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
@@ -147,7 +147,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const el = entry.target;
                 const target = +el.dataset.target;
                 const suffix = suffixes[el.dataset.target] || '';
-                const duration = 1600;
+                const duration = 850;
                 const step = 16;
                 const increment = target / (duration / step);
                 let current = 0;
