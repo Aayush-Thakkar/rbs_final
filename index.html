@@ -7,9 +7,15 @@
     <title>Luxe Interiors | Transform Your Space Into Art</title>
     <meta name="description"
         content="Premium interior design firm specializing in modern, minimalist, and luxury spaces for residential and commercial properties.">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap"
-        rel="stylesheet">
+    <style>
+        @font-face {
+    font-family: 'Nippo';        /* the name you'll use in CSS */
+    src: url('Nippo-Variable.ttf') format('truetype');  /* path relative to the HTML file */
+    font-weight: 100 900;                 /* range — tells browser this one file covers all weights */
+    font-display: swap;                   /* show fallback font instantly, swap when loaded */
+}
+
+    </style>
     <link rel="stylesheet" href="style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 </head>
@@ -20,10 +26,10 @@
             <img src="logo.jpg" alt="RBS DESIGNER STUDIO Logo">
         </a>
         <ul class="nav-links">
-            <li><a href="#about-us">About</a></li>
-            <li><a href="#about-me">About Me</a></li>
+            <li><a href="#about">About</a></li>
             <li><a href="#portfolio">Portfolio</a></li>
             <li><a href="#services">Services</a></li>
+            <li><a href="#achievements">Achievements</a></li>
             <li><a href="#testimonials">Testimonials</a></li>
         </ul>
         <a href="#contact" class="nav-cta"><b>Let's Talk</b></a>
@@ -59,6 +65,23 @@
             <h2 class="section-title">About Us</h2>
             <div class="section-line"></div>
         </div>
+
+        <!-- About Me merged block -->
+        <div class="about-me-container about-me-merged">
+            <div class="about-me-image-wrap">
+                <div class="about-me-image">
+                    <img src="Sahil_motwani-removebg-preview.png" alt="Sahil Motwani – Principal Designer" loading="lazy">
+                </div>
+                <p class="about-me-caption">Sahil Motwani</p>
+            </div>
+            <div class="about-me-text">
+                <h3 class="about-me-heading">Founder &amp; Principal Designer</h3>
+                <div class="section-line about-me-line"></div>
+                <p>Founder &amp; Principal Designer at RBS Design Studio. Specializing in sophisticated and functional interior environments, he leads diverse residential and commercial projects with a focus on creativity, strategy, and refined detailing – transforming visions into beautifully crafted spaces.</p>
+            </div>
+        </div>
+
+        <div class="about-divider"></div>
 
         <div class="about-container">
             <div class="about-content">
@@ -254,25 +277,7 @@
         </div>
     </section>
 
-    <section class="section about-me" id="about-me">
-        <div class="about-me-container">
-            <div class="about-me-image-wrap">
-                <div class="about-me-image">
-                    <img src="Sahil_motwani-removebg-preview.png" alt="Sahil Motwani – Principal Designer"
-                        loading="lazy">
-                </div>
-                <p class="about-me-caption">Sahil Motwani</p>
-            </div>
-            <div class="about-me-text">
-                <h2 class="section-title about-me-heading">About Me</h2>
-                <div class="section-line about-me-line"></div>
-                <p>Founder &amp; Principal Designer at RBS Design Studio. Specializing in sophisticated and functional
-                    interior environments, he leads diverse residential and commercial projects with a focus on
-                    creativity, strategy, and refined detailing – transforming visions into beautifully crafted spaces.
-                </p>
-            </div>
-        </div>
-    </section>
+
 
     <section class="section portfolio" id="portfolio">
         <div class="section-title-wrap">
@@ -280,61 +285,36 @@
             <div class="section-line"></div>
         </div>
 
-        <div class="grid portfolio-grid">
-            <div class="card portfolio-card">
-                <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=800&q=80"
-                    alt="Modern Living Room" loading="lazy">
-                <div class="card-overlay">
-                    <h3>The minimalist Haven</h3>
-                    <p>Residential</p>
-                    <span class="view-btn">View Project &rarr;</span>
+        <div class="portfolio-slider">
+            <div class="portfolio-track" id="portfolioTrack">
+                <div class="card portfolio-card">
+                    <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=800&q=80" alt="Modern Living Room" loading="lazy">
+                    <div class="card-overlay"><h3>The Minimalist Haven</h3><p>Residential</p><span class="view-btn">View Project &rarr;</span></div>
                 </div>
-            </div>
-            <div class="card portfolio-card">
-                <img src="https://images.unsplash.com/photo-1632583824020-937ae9564495?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8bHV4dXJ5JTIwa2l0Y2hlbnxlbnwwfHwwfHx8MA%3D%3D"
-                    alt="Luxury Kitchen" loading="lazy">
-                <div class="card-overlay">
-                    <h3>Culinary Elegance</h3>
-                    <p>Residential</p>
-                    <span class="view-btn">View Project &rarr;</span>
+                <div class="card portfolio-card">
+                    <img src="https://images.unsplash.com/photo-1632583824020-937ae9564495?w=900&auto=format&fit=crop&q=60" alt="Luxury Kitchen" loading="lazy">
+                    <div class="card-overlay"><h3>Culinary Elegance</h3><p>Residential</p><span class="view-btn">View Project &rarr;</span></div>
                 </div>
-            </div>
-            <div class="card portfolio-card">
-                <img src="serenity.jpeg" alt="Office Space" loading="lazy">
-                <div class="card-overlay">
-                    <h3>Corporate Serenity</h3>
-                    <p>Commercial</p>
-                    <span class="view-btn">View Project &rarr;</span>
+                <div class="card portfolio-card">
+                    <img src="serenity.jpeg" alt="Office Space" loading="lazy">
+                    <div class="card-overlay"><h3>Corporate Serenity</h3><p>Commercial</p><span class="view-btn">View Project &rarr;</span></div>
                 </div>
-            </div>
-            <div class="card portfolio-card">
-                <img src="https://images.unsplash.com/photo-1611048268428-c7dddc465ee7?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8bWFzdGVyJTIwYmVkcm9vbXxlbnwwfHwwfHx8MA%3D%3D"
-                    alt="Master Bedroom" loading="lazy">
-                <div class="card-overlay">
-                    <h3>Tranquil Retreat</h3>
-                    <p>Residential</p>
-                    <span class="view-btn">View Project &rarr;</span>
+                <div class="card portfolio-card">
+                    <img src="https://images.unsplash.com/photo-1611048268428-c7dddc465ee7?w=900&auto=format&fit=crop&q=60" alt="Master Bedroom" loading="lazy">
+                    <div class="card-overlay"><h3>Tranquil Retreat</h3><p>Residential</p><span class="view-btn">View Project &rarr;</span></div>
                 </div>
-            </div>
-            <div class="card portfolio-card">
-                <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=800&q=80"
-                    alt="Luxury Bathroom" loading="lazy">
-                <div class="card-overlay">
-                    <h3>Marble Sanctuary</h3>
-                    <p>Residential</p>
-                    <span class="view-btn">View Project &rarr;</span>
+                <div class="card portfolio-card">
+                    <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=800&q=80" alt="Luxury Bathroom" loading="lazy">
+                    <div class="card-overlay"><h3>Marble Sanctuary</h3><p>Residential</p><span class="view-btn">View Project &rarr;</span></div>
                 </div>
-            </div>
-            <div class="card portfolio-card">
-                <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80"
-                    alt="Modern Office" loading="lazy">
-                <div class="card-overlay">
-                    <h3>Executive Suite</h3>
-                    <p>Commercial</p>
-                    <span class="view-btn">View Project &rarr;</span>
+                <div class="card portfolio-card">
+                    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80" alt="Modern Office" loading="lazy">
+                    <div class="card-overlay"><h3>Executive Suite</h3><p>Commercial</p><span class="view-btn">View Project &rarr;</span></div>
                 </div>
             </div>
         </div>
+
+        <div class="portfolio-dots" id="portfolioDots"></div>
     </section>
 
     <section class="section services" id="services">

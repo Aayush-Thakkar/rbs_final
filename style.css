@@ -8,8 +8,8 @@
     --clr-text-muted: #A8A29E;
     --clr-border: rgba(212, 179, 138, 0.15);
 
-    --font-heading: 'Playfair Display', serif;
-    --font-body: 'Inter', sans-serif;
+    --font-heading: 'Nippo', Georgia, serif;
+    --font-body: Georgia, 'Times New Roman', serif;
 
     --transition-slow: 0.6s cubic-bezier(0.22, 1, 0.36, 1);
     --transition-normal: 0.3s ease;
@@ -59,7 +59,7 @@ img {
 }
 
 .section-title {
-    font-size: 2.5rem;
+    font-size: 3rem;
     color: var(--clr-primary);
     margin-bottom: 1rem;
     letter-spacing: 1px;
@@ -756,12 +756,72 @@ img {
     .exhibit-label { white-space: normal; }
 }
 
-/* About Me */
-.about-me {
-    background-color: var(--clr-surface);
+/* About merged divider */
+.about-me-merged {
+    margin-bottom: 4rem;
 }
 
-.about-me-container {
+.about-divider {
+    width: 100%;
+    height: 1px;
+    background: var(--clr-border);
+    margin: 3rem 0;
+}
+
+.about-me-heading {
+    font-size: 1.6rem;
+    color: var(--clr-primary);
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+/* Portfolio Slider */
+.portfolio-slider {
+    position: relative;
+    overflow: hidden;
+}
+
+.portfolio-track {
+    display: flex;
+    gap: 1.5rem;
+    transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: transform;
+}
+
+.portfolio-track .portfolio-card {
+    flex: 0 0 calc(33.333% - 1rem);
+    aspect-ratio: 4/5;
+}
+
+.portfolio-dots {
+    display: flex;
+    justify-content: center;
+    gap: 0.6rem;
+    margin-top: 2rem;
+}
+
+.portfolio-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--clr-border);
+    border: 1px solid var(--clr-primary);
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.portfolio-dot.active {
+    background: var(--clr-primary);
+    transform: scale(1.3);
+}
+
+@media (max-width: 1024px) {
+    .portfolio-track .portfolio-card { flex: 0 0 calc(50% - 0.75rem); }
+}
+
+@media (max-width: 768px) {
+    .portfolio-track .portfolio-card { flex: 0 0 100%; aspect-ratio: 3/2; }
+}
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 5rem;

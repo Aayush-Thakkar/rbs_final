@@ -116,6 +116,42 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Portfolio Dot Slider
+    const track = document.getElementById('portfolioTrack');
+    const dotsContainer = document.getElementById('portfolioDots');
+
+    if (track && dotsContainer) {
+        const cards = track.querySelectorAll('.portfolio-card');
+        let current = 0;
+
+        const getVisible = () => window.innerWidth <= 768 ? 1 : window.innerWidth <= 1024 ? 2 : 3;
+
+        const totalSlides = () => Math.ceil(cards.length / getVisible());
+
+        const buildDots = () => {
+            dotsContainer.innerHTML = '';
+            for (let i = 0; i < totalSlides(); i++) {
+                const dot = document.createElement('button');
+                dot.className = 'portfolio-dot' + (i === current ? ' active' : '');
+                dot.setAttribute('aria-label', `Slide ${i + 1}`);
+                dot.addEventListener('click', () => goTo(i));
+                dotsContainer.appendChild(dot);
+            }
+        };
+
+        const goTo = (index) => {
+            current = Math.max(0, Math.min(index, totalSlides() - 1));
+            const cardWidth = cards[0].offsetWidth + 24;
+            track.style.transform = `translateX(-${current * getVisible() * cardWidth}px)`;
+            dotsContainer.querySelectorAll('.portfolio-dot').forEach((d, i) => {
+                d.classList.toggle('active', i === current);
+            });
+        };
+
+        buildDots();
+        window.addEventListener('resize', () => { current = 0; buildDots(); goTo(0); });
+    }
+
     // 5. Scroll Animations
     const fadeElements = document.querySelectorAll('.portfolio-card, .service-card, .testimonial-card');
 
