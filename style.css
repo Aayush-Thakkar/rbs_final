@@ -8,7 +8,7 @@
     --clr-text-muted: #A8A29E;
     --clr-border: rgba(212, 179, 138, 0.15);
 
-    --font-heading: 'Nippo', Georgia, serif;
+    --font-heading: Georgia, 'Times New Roman', serif;
     --font-body: Georgia, 'Times New Roman', serif;
 
     --transition-slow: 0.6s cubic-bezier(0.22, 1, 0.36, 1);
@@ -35,7 +35,7 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-heading);
-    font-weight: 400;
+    font-weight: 600;
 }
 
 a {
@@ -361,7 +361,7 @@ img {
 
 .card-overlay h3 {
     font-size: 1.5rem;
-    color: var(--clr-bg);
+    color: var(--clr-text-muted);
     margin-bottom: 0.25rem;
     transform: translateY(10px);
     transition: var(--transition-normal);
@@ -419,7 +419,7 @@ img {
 }
 
 .about-content h3 {
-    font-size: 1.8rem;
+    font-size: 2.5rem;
     color: var(--clr-primary);
     margin-bottom: 1.5rem;
     line-height: 1.3;
@@ -429,7 +429,7 @@ img {
     color: var(--clr-text-muted);
     margin-bottom: 1.5rem;
     line-height: 1.8;
-    font-size: 1rem;
+    font-size: 1.15rem;
 }
 
 .about-stats {
@@ -723,7 +723,7 @@ img {
     border-radius: 2px;
     transform: scaleX(0);
     transform-origin: left;
-    transition: transform 0.6s ease;
+    transition: transform 0.2s ease;
 }
 
 .connector-glow {
@@ -759,6 +759,14 @@ img {
 /* About merged divider */
 .about-me-merged {
     margin-bottom: 4rem;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.about-me-merged .about-me-image-wrap {
+    justify-self: center;
 }
 
 .about-divider {
@@ -816,6 +824,8 @@ img {
 }
 
 @media (max-width: 1024px) {
+    .about-me-merged { grid-template-columns: 1fr; gap: 2.5rem; }
+    .about-me-merged .about-me-image-wrap { justify-self: center; }
     .portfolio-track .portfolio-card { flex: 0 0 calc(50% - 0.75rem); }
 }
 
