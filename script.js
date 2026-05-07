@@ -86,24 +86,38 @@ document.addEventListener('DOMContentLoaded', () => {
             const data = Object.fromEntries(formData.entries());
 
             try {
-                const response = await fetch('/api/contact', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(data)
+                // Submit to Google Form silently
+                const googleFormUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSfuXju8ZYk3T4Y3uIJJjLxnp2HQwWpyIniHqWMzQ1TjI5pQcA/formResponse';
+                const googleParams = new URLSearchParams({
+                    'entry.119295953': data.name || '',
+                    'entry.798955091': data.email || '',
+                    'entry.784844067': data.phone || '',
+                    'entry.1785505817': data.projectType || '',
+                    'entry.454189939': data.message || ''
                 });
+                fetch(googleFormUrl, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    body: googleParams.toString()
+                }).catch(() => {});
 
-                const result = await response.json();
-
-                if (response.ok) {
-                    formStatus.textContent = 'Thank you! Your message has been sent successfully.';
-                    formStatus.classList.add('status-success');
-                    contactForm.reset();
-                } else {
-                    formStatus.textContent = result.error || 'An error occurred. Please try again.';
-                    formStatus.classList.add('status-error');
+                // Also submit to local backend
+                try {
+                    const response = await fetch('/api/contact', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(data)
+                    });
+                    const result = await response.json();
+                    if (!response.ok) console.warn('Backend error:', result.error);
+                } catch (backendErr) {
+                    console.warn('Local backend unavailable:', backendErr);
                 }
+
+                formStatus.textContent = 'Thank you! Your message has been sent successfully.';
+                formStatus.classList.add('status-success');
+                contactForm.reset();
             } catch (error) {
                 console.error('Error submitting form:', error);
                 formStatus.textContent = 'Network error. Please try again or use WhatsApp.';
