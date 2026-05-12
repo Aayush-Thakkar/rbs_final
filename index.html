@@ -4,9 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Luxe Interiors | Transform Your Space Into Art</title>
+    <title>RBS Designer Studio | Transform Your Space Into Art</title>
     <meta name="description"
         content="Premium interior design firm specializing in modern, minimalist, and luxury spaces for residential and commercial properties.">
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/ico" href="favicon/favicon.ico">
+    <link rel="icon" type="image/svg+xml" href="favicon/favicon.svg">
+    <link rel="icon" type="image/png" sizes="96x96" href="favicon/favicon-96x96.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+    <link rel="manifest" href="favicon/site.webmanifest">
+    <meta name="theme-color" content="#1A1918">
     <style>
         @font-face {
             font-family: 'Nippo';
@@ -47,16 +55,15 @@
         <div class="video-container">
             <video autoplay muted loop playsinline preload="metadata" class="hero-video"
                 poster="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1920&q=80">
-
-
                 <source src="HERO_Final_26.mp4" type="video/mp4">
-
             </video>
+            <img class="hero-poster" src="https://plus.unsplash.com/premium_photo-1747771129197-010a72fe735b?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fGx1eHVyeSUyMGhvbWUlMjBpbmRpYW4lMjBtb2Rlcm58ZW58MHwxfDB8fHww" alt="RBS Design Studio Interior" fetchpriority="high">
             <canvas id="hero-particles"></canvas>
             <div class="video-overlay"></div>
         </div>
-
-
+        <div class="hero-content">
+            <a href="#contact" class="btn btn-primary hero-btn hero-btn-mobile fade-in-up">Book Consultation</a>
+        </div>
     </header>
 
     <section class="section about" id="about">
@@ -110,7 +117,7 @@
                     redefine spaces with sophistication, creativity, and timeless appeal.</p>-->
                 <div class="about-stats">
                     <div class="stat">
-                        <h4 data-target="25">0</h4>
+                        <h4 data-target="35">0</h4>
                         <p>Projects Completed</p>
                     </div>
                     <div class="stat">
@@ -294,13 +301,14 @@
         </div>
 
         <div class="portfolio-slider">
+            <button class="portfolio-arrow portfolio-prev" id="portfolioPrev" aria-label="Previous work">‹</button>
             <div class="portfolio-track" id="portfolioTrack">
                 <div class="card portfolio-card">
-                    <img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAEnqZQAGNRbl6ob8TB_GlofLPxVtFoq24lkL1SbtZPS4mrufj7wtbte1NdHAEaDWHV2vYlHkFtHt8oZiDHUNMrZHX_IMvcCPBNkDjpIJX2Esd8gmaF9BatrUbNRkZyzwgLaktmlIGYQXItw=s1360-w1360-h1020"
+                    <img src="ShitlaniVillas.jpeg"
                         alt="Hotel KingsMahal" loading="lazy">
                     <div class="card-overlay">
-                        <h3>Hotel KingsMahal</h3>
-                        <p>Commercial</p>
+                        <h3>Shitlani Villas</h3>
+                        <p>Residential</p>
                     </div>
                 </div>
                 <div class="card portfolio-card">
@@ -312,9 +320,9 @@
                 </div>
 
                 <div class="card portfolio-card">
-                    <img src="serenity.jpeg" alt="Office Space" loading="lazy">
+                    <img src="kingsMahal.jpeg" alt="Office Space" loading="lazy">
                     <div class="card-overlay">
-                        <h3>Corporate Serenity</h3>
+                        <h3>Hotel KingsMahal</h3>
                         <p>Commercial</p>
                     </div>
                 </div>
@@ -326,23 +334,22 @@
                     </div>
                 </div>
                 <div class="card portfolio-card">
-                    <img src="marbal sancutry.png" alt="Luxury Bathroom" loading="lazy">
+                    <img src="Gemini_Generated_Image_cno57dcno57dcno5.png" alt="jewelry shop" loading="lazy">
                     <div class="card-overlay">
-                        <h3>Marble Sanctuary</h3>
+                        <h3>Atelier</h3>
                         <p>Residential</p>
                     </div>
                 </div>
                 <div class="card portfolio-card">
-                    <img src="culinary experience.png" alt="Luxury Kitchen" loading="lazy">
+                    <img src="Elevation Motwani ji.jpg.jpeg" alt="house" loading="lazy">
                     <div class="card-overlay">
-                        <h3>Culinary Elegance</h3>
+                        <h3>Elevation</h3>
                         <p>Residential</p>
                     </div>
                 </div>
             </div>
+            <button class="portfolio-arrow portfolio-next" id="portfolioNext" aria-label="Next work">›</button>
         </div>
-
-        <div class="portfolio-dots" id="portfolioDots"></div>
     </section>
 
     <section class="section services" id="services">
@@ -429,9 +436,17 @@
         <div class="achievements-grid">
             <div class="achievement-img">
                 <img src="certi1.jpeg" alt="Achievement 1" loading="lazy">
+                <div class="caption">
+                    <h4>Honoured at Jashn-E-Zubaan by Sainath Foundation</h4>
+                    <p>Recognized for creativity and contribution, and felicitated at the Jashn-E-Zubaan event organized by Sainath Foundation.</p>
+                </div>
             </div>
             <div class="achievement-img">
-                <img src="certi2.png" alt="Achievement 2" loading="lazy">
+                <img src="certi2.jpeg" alt="Achievement 2" loading="lazy">
+                <div class="caption">
+                    <h4>Creative Mind of 2025 – Imaarat Design Festival</h4>
+                    <p>Honoured at the Imaarat Design Festival for creative excellence and innovative design thinking during Odyssey 2025.</p>
+                </div>
             </div>
 
         </div>
@@ -497,12 +512,12 @@
                 <p>Ready to transform your space? Get in touch with us to schedule an initial consultation.</p>
 
                 <div class="contact-details">
-                    <p><strong>Email:</strong> info@RBSDESIGNERSTUDIO.com</p>
-                    <p><strong>Phone:</strong> +91-9876543210</p>
-                    <p><strong>Studio:</strong> 123 Design Avenue, Creative District</p>
+                    <p><strong>Email:</strong> sahilmotwani3475@gmail.com</p>
+                    <p><strong>Phone:</strong> +91 8770335080</p>
+                    <p><strong>Studio:</strong> RBS Design Studio, near bright spark academy, Mahaveer Nagar, Raipur</p>
                 </div>
 
-                <a href="https://wa.me/919876543210" class="btn btn-whatsapp" target="_blank" rel="noopener noreferrer">
+                <a href="https://wa.me/918770335080" class="btn btn-whatsapp" target="_blank" rel="noopener noreferrer">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="margin-right: 8px;">
                         <path
                             d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z" />
@@ -515,15 +530,15 @@
                 <form id="contactForm" class="contact-form">
                     <div class="form-group">
                         <label for="name">Name *</label>
-                        <input type="text" id="name" name="name" required placeholder="Jane Doe">
+                        <input type="text" id="name" name="name" required placeholder="Rahul Rao">
                     </div>
                     <div class="form-group">
                         <label for="email">Email *</label>
-                        <input type="email" id="email" name="email" required placeholder="jane@example.com">
+                        <input type="email" id="email" name="email" required placeholder="rahul@example.com">
                     </div>
                     <div class="form-group">
                         <label for="phone">Phone</label>
-                        <input type="tel" id="phone" name="phone" placeholder="+1 (555) 000-0000">
+                        <input type="tel" id="phone" name="phone" placeholder="+91 000 000-0000">
                     </div>
                     <div class="form-group">
                         <label for="projectType">Project Type</label>

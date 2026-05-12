@@ -87,13 +87,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
             try {
                 // Submit to Google Form silently
-                const googleFormUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSfuXju8ZYk3T4Y3uIJJjLxnp2HQwWpyIniHqWMzQ1TjI5pQcA/formResponse';
+                const googleFormUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSenR6afysEOpCHwVoxlNmemr0nGTKqyuPZyuT78YMFuXYmHwA/formResponse';
                 const googleParams = new URLSearchParams({
-                    'entry.119295953': data.name || '',
-                    'entry.798955091': data.email || '',
-                    'entry.784844067': data.phone || '',
-                    'entry.1785505817': data.projectType || '',
-                    'entry.454189939': data.message || ''
+                    'entry.1344020048': data.name || '',
+                    'entry.1252668552': data.email || '',
+                    'entry.710649452': data.phone || '',
+                    'entry.2106917150': data.projectType || '',
+                    'entry.910729438': data.message || ''
                 });
                 fetch(googleFormUrl, {
                     method: 'POST',
@@ -130,40 +130,41 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Portfolio Dot Slider
+    // Portfolio Arrow Slider
     const track = document.getElementById('portfolioTrack');
-    const dotsContainer = document.getElementById('portfolioDots');
+    const prevBtn = document.getElementById('portfolioPrev');
+    const nextBtn = document.getElementById('portfolioNext');
 
-    if (track && dotsContainer) {
+    if (track && prevBtn && nextBtn) {
         const cards = track.querySelectorAll('.portfolio-card');
         let current = 0;
 
         const getVisible = () => window.innerWidth <= 768 ? 1 : window.innerWidth <= 1024 ? 2 : 3;
 
-        const totalSlides = () => Math.ceil(cards.length / getVisible());
+        const cardGap = () => parseFloat(getComputedStyle(track).gap) || 0;
 
-        const buildDots = () => {
-            dotsContainer.innerHTML = '';
-            for (let i = 0; i < totalSlides(); i++) {
-                const dot = document.createElement('button');
-                dot.className = 'portfolio-dot' + (i === current ? ' active' : '');
-                dot.setAttribute('aria-label', `Slide ${i + 1}`);
-                dot.addEventListener('click', () => goTo(i));
-                dotsContainer.appendChild(dot);
-            }
+        const maxIndex = () => Math.max(0, cards.length - getVisible());
+
+        const updateArrows = () => {
+            prevBtn.style.opacity = current === 0 ? '0.35' : '1';
+            prevBtn.style.pointerEvents = current === 0 ? 'none' : 'auto';
+            nextBtn.style.opacity = current >= maxIndex() ? '0.35' : '1';
+            nextBtn.style.pointerEvents = current >= maxIndex() ? 'none' : 'auto';
         };
 
         const goTo = (index) => {
-            current = Math.max(0, Math.min(index, totalSlides() - 1));
-            const cardWidth = cards[0].offsetWidth + 24;
-            track.style.transform = `translateX(-${current * getVisible() * cardWidth}px)`;
-            dotsContainer.querySelectorAll('.portfolio-dot').forEach((d, i) => {
-                d.classList.toggle('active', i === current);
-            });
+            const visible = getVisible();
+            current = Math.max(0, Math.min(index, maxIndex()));
+            const cardWidth = cards[0].offsetWidth;
+            track.style.transform = `translateX(-${current * (cardWidth + cardGap())}px)`;
+            updateArrows();
         };
 
-        buildDots();
-        window.addEventListener('resize', () => { current = 0; buildDots(); goTo(0); });
+        prevBtn.addEventListener('click', () => goTo(current - 1));
+        nextBtn.addEventListener('click', () => goTo(current + 1));
+
+        updateArrows();
+        window.addEventListener('resize', () => { current = 0; goTo(0); });
     }
 
     // 5. Scroll Animations
@@ -189,7 +190,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 5a. Stat Counter Animation
     const statEls = document.querySelectorAll('.stat h4[data-target]');
-    const suffixes = { '25': '+', '3': '+', '98': '%' };
+    const suffixes = { '35': '+', '3': '+', '98': '%' };
 
     const counterObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
@@ -231,12 +232,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     steps.forEach((step, i) => {
                         setTimeout(() => {
                             step.classList.add('visible');
-                            if (i === 0) step.classList.add('active');
                             if (connectors[i]) {
                                 setTimeout(() => {
                                     connectors[i].classList.add('visible');
-                                    step.classList.remove('active');
-                                    if (steps[i + 1]) steps[i + 1].classList.add('active');
                                 }, 300);
                             }
                         }, i * 500);
