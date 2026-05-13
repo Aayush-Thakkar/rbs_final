@@ -53,11 +53,14 @@
 
     <header class="hero" id="home">
         <div class="video-container">
-            <video autoplay muted loop playsinline preload="metadata" class="hero-video"
+            <video autoplay muted loop playsinline preload="auto" class="hero-video"
                 poster="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1920&q=80">
-                <source src="Hero_final.mp4" type="video/mp4">
+                <source src="Hero_compressed.webm" type="video/webm">
+                <source src="Hero_compressed.mp4" type="video/mp4">
             </video>
-            <img class="hero-poster" src="https://plus.unsplash.com/premium_photo-1747771129197-010a72fe735b?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fGx1eHVyeSUyMGhvbWUlMjBpbmRpYW4lMjBtb2Rlcm58ZW58MHwxfDB8fHww" alt="RBS Design Studio Interior" fetchpriority="high">
+            <img class="hero-poster"
+                src="https://plus.unsplash.com/premium_photo-1747771129197-010a72fe735b?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fGx1eHVyeSUyMGhvbWUlMjBpbmRpYW4lMjBtb2Rlcm58ZW58MHwxfDB8fHww"
+                alt="RBS Design Studio Interior" fetchpriority="high">
             <canvas id="hero-particles"></canvas>
             <div class="video-overlay"></div>
         </div>
@@ -304,8 +307,7 @@
             <button class="portfolio-arrow portfolio-prev" id="portfolioPrev" aria-label="Previous work">‹</button>
             <div class="portfolio-track" id="portfolioTrack">
                 <div class="card portfolio-card">
-                    <img src="compressed_ShitlaniVillas.jpeg"
-                        alt="Shitlani villas" loading="lazy">
+                    <img src="compressed_ShitlaniVillas.jpeg" alt="Shitlani villas" loading="lazy">
                     <div class="card-overlay">
                         <h3>Shitlani Villas</h3>
                         <p>Residential</p>
@@ -438,14 +440,16 @@
                 <img src="compressed_certi1.jpeg" alt="Achievement 1" loading="lazy">
                 <div class="caption">
                     <h4>Honoured at Jashn-E-Zubaan by Sainath Foundation</h4>
-                    <p>Recognized for creativity and contribution, and felicitated at the Jashn-E-Zubaan event organized by Sainath Foundation.</p>
+                    <p>Recognized for creativity and contribution, and felicitated at the Jashn-E-Zubaan event organized
+                        by Sainath Foundation.</p>
                 </div>
             </div>
             <div class="achievement-img">
                 <img src="compressed_certi2.jpeg" alt="Achievement 2" loading="lazy">
                 <div class="caption">
                     <h4>Creative Mind of 2025 – Imaarat Design Festival</h4>
-                    <p>Honoured at the Imaarat Design Festival for creative excellence and innovative design thinking during Odyssey 2025.</p>
+                    <p>Honoured at the Imaarat Design Festival for creative excellence and innovative design thinking
+                        during Odyssey 2025.</p>
                 </div>
             </div>
 
@@ -460,42 +464,49 @@
         <div class="testimonials-track-wrap">
             <div class="testimonials-track">
                 <div class="testimonial-card">
-                    <p class="quote">"RBS Design Studio completely transformed our home into a luxurious and elegant space. Every detail was thoughtfully designed, and the final outcome exceeded our expectations."</p>
+                    <p class="quote">"RBS Design Studio completely transformed our home into a luxurious and elegant
+                        space. Every detail was thoughtfully designed, and the final outcome exceeded our expectations."
+                    </p>
                     <div class="client-info">
                         <div class="client-rating">★★★★★</div>
                         <h4>Priya Sharma</h4><span>Homeowners</span>
                     </div>
                 </div>
                 <div class="testimonial-card">
-                    <p class="quote">"Professional, creative, and highly dedicated team. The entire process was smooth from planning to execution. Our office now looks modern, premium, and perfectly functional."</p>
+                    <p class="quote">"Professional, creative, and highly dedicated team. The entire process was smooth
+                        from planning to execution. Our office now looks modern, premium, and perfectly functional."</p>
                     <div class="client-info">
                         <div class="client-rating">★★★★★</div>
                         <h4>Rahul Mehta</h4><span>Executive</span>
                     </div>
                 </div>
                 <div class="testimonial-card">
-                    <p class="quote">"Their attention to detail and understanding of luxury interiors is truly impressive. RBS Design Studio delivered exactly what we envisioned, but even better."</p>
+                    <p class="quote">"Their attention to detail and understanding of luxury interiors is truly
+                        impressive. RBS Design Studio delivered exactly what we envisioned, but even better."</p>
                     <div class="client-info">
                         <div class="client-rating">★★★★★</div>
                         <h4>Ankit Jain</h4><span>Workplace</span>
                     </div>
                 </div>
                 <div class="testimonial-card">
-                    <p class="quote">"We wanted a sophisticated and timeless interior for our showroom, and the team delivered flawlessly. The space feels premium and attracts compliments from every visitor."</p>
+                    <p class="quote">"We wanted a sophisticated and timeless interior for our showroom, and the team
+                        delivered flawlessly. The space feels premium and attracts compliments from every visitor."</p>
                     <div class="client-info">
                         <div class="client-rating">★★★★★</div>
                         <h4>Neha Arora</h4><span>Homeowners</span>
                     </div>
                 </div>
                 <div class="testimonial-card">
-                    <p class="quote">"Exceptional design sense and excellent project management. The team maintained quality throughout the project and created a space that feels both stylish and comfortable."</p>
+                    <p class="quote">"Exceptional design sense and excellent project management. The team maintained
+                        quality throughout the project and created a space that feels both stylish and comfortable."</p>
                     <div class="client-info">
                         <div class="client-rating">★★★★★</div>
                         <h4>Karan Verma</h4><span>Executive</span>
                     </div>
                 </div>
                 <div class="testimonial-card">
-                    <p class="quote">"Working with RBS Design Studio was an amazing experience. Their creativity, professionalism, and commitment to perfection truly set them apart."</p>
+                    <p class="quote">"Working with RBS Design Studio was an amazing experience. Their creativity,
+                        professionalism, and commitment to perfection truly set them apart."</p>
                     <div class="client-info">
                         <div class="client-rating">★★★★★</div>
                         <h4>Simran Kapoor</h4><span>Workplace</span>
@@ -514,7 +525,8 @@
                 <div class="contact-details">
                     <p><strong>Email:</strong> sahilmotwani3475@gmail.com</p>
                     <p><strong>Phone:</strong> +91 8770335080</p>
-                    <p><strong>Address:</strong> RBS Design Studio, near bright spark academy, Mahaveer Nagar, Raipur</p>
+                    <p><strong>Address:</strong> RBS Design Studio, near bright spark academy, Mahaveer Nagar, Raipur
+                    </p>
                 </div>
 
                 <a href="https://wa.me/918770335080" class="btn btn-whatsapp" target="_blank" rel="noopener noreferrer">
