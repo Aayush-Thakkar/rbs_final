@@ -1203,7 +1203,8 @@ img {
     flex-direction: column;
     gap: 1rem;
     width: 100%;
-    max-width: 320px;
+    max-width: 100%;
+    align-items: stretch;
 }
 
 /* WhatsApp Ghost Button */
