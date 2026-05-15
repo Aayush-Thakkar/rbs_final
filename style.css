@@ -1200,11 +1200,10 @@ img {
 
 .contact-actions {
     display: flex;
-    flex-direction: column;
+    flex-direction: column !important;
     gap: 1rem;
     width: 100%;
-    max-width: 100%;
-    align-items: stretch;
+    max-width: 320px;
 }
 
 /* WhatsApp Ghost Button */
