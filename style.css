@@ -815,50 +815,55 @@ img {
 .portfolio-slider {
     position: relative;
     overflow: hidden;
-}
-
-.portfolio-arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 44px;
-    height: 44px;
-    border: 1px solid rgba(212, 179, 138, 0.45);
-    border-radius: 50%;
-    background: rgba(26, 25, 24, 0.85);
-    color: var(--clr-text);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.4rem;
-    cursor: pointer;
-    transition: transform 0.2s ease, opacity 0.2s ease, background 0.2s ease;
-    z-index: 2;
-}
-
-.portfolio-arrow:hover {
-    transform: translateY(-50%) scale(1.05);
-    background: rgba(212, 179, 138, 0.15);
-}
-
-.portfolio-arrow:disabled {
-    opacity: 0.35;
-    cursor: not-allowed;
-}
-
-.portfolio-prev {
-    left: 1rem;
-}
-
-.portfolio-next {
-    right: 1rem;
+    perspective: 1400px;
 }
 
 .portfolio-track {
     display: flex;
     gap: 1.5rem;
-    transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+    transition: transform 1.2s cubic-bezier(0.34, 1.56, 0.64, 1);
     will-change: transform;
+    transform-style: preserve-3d;
+}
+
+.portfolio-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 4px;
+    aspect-ratio: 4/5;
+    cursor: pointer;
+    border: 1px solid var(--clr-border);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+    transform: translateZ(0);
+    transform-style: preserve-3d;
+    transition: transform 0.8s var(--transition-slow), box-shadow 0.8s var(--transition-slow);
+}
+
+.portfolio-card:hover {
+    transform: translateY(-6px) rotateY(2deg);
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.35);
+}
+
+.portfolio-arrow {
+    display: none;
+}
+
+.portfolio-prev,
+.portfolio-next {
+    display: none;
+}
+
+
+.portfolio-track {
+    display: flex;
+    gap: 1.5rem;
+    transition: transform 1.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+    will-change: transform;
+    transform-style: preserve-3d;
+}
+
+.portfolio-track.auto-scroll {
+    transition: none;
 }
 
 .portfolio-track .portfolio-card {
@@ -1180,6 +1185,7 @@ img {
 
 .contact-details {
     margin-bottom: 3rem;
+     font-family: "Your Font Name", Arial, sans-serif;
 }
 
 .contact-details p {
@@ -1193,17 +1199,36 @@ img {
 }
 
 /* WhatsApp Ghost Button */
-.btn-whatsapp {
+.btn-whatsapp,
+.btn-instagram {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    padding: 0.95rem 1.35rem;
     background-color: transparent;
+    border-radius: 4px;
     border: 1px solid var(--clr-primary);
     color: var(--clr-primary);
-    border-radius: 4px;
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
 }
 
 .btn-whatsapp:hover {
     background-color: #3A5C4A;
     border-color: #3A5C4A;
     color: var(--clr-bg);
+}
+
+.btn-instagram {
+    border: 1px solid var(--clr-primary);
+    color: var(--clr-primary);
+    margin-top: 1rem;
+}
+
+.btn-instagram:hover {
+    background: linear-gradient(135deg, #E1306C, #F77737);
+    border-color: transparent;
+    color: #fff;
 }
 
 .contact-form {

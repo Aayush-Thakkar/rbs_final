@@ -130,41 +130,46 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Portfolio Arrow Slider
+    // Portfolio Infinite Scroll Slider
     const track = document.getElementById('portfolioTrack');
-    const prevBtn = document.getElementById('portfolioPrev');
-    const nextBtn = document.getElementById('portfolioNext');
 
-    if (track && prevBtn && nextBtn) {
-        const cards = track.querySelectorAll('.portfolio-card');
-        let current = 0;
+    if (track) {
+        const cards = Array.from(track.querySelectorAll('.portfolio-card'));
+        if (cards.length > 0) {
+            cards.forEach(card => track.appendChild(card.cloneNode(true)));
+            track.classList.add('auto-scroll');
 
-        const getVisible = () => window.innerWidth <= 768 ? 1 : window.innerWidth <= 1024 ? 2 : 3;
+            let offset = 0;
+            let previousTimestamp = null;
+            let paused = false;
+            const speed = 0.06; // pixels per ms
 
-        const cardGap = () => parseFloat(getComputedStyle(track).gap) || 0;
+            const getResetPoint = () => track.scrollWidth / 2;
 
-        const maxIndex = () => Math.max(0, cards.length - getVisible());
+            const animate = (timestamp) => {
+                if (!paused && previousTimestamp !== null) {
+                    const delta = timestamp - previousTimestamp;
+                    offset += delta * speed;
+                    const resetPoint = getResetPoint();
+                    if (offset >= resetPoint) {
+                        offset -= resetPoint;
+                    }
+                    track.style.transform = `translateX(-${offset}px)`;
+                }
+                previousTimestamp = timestamp;
+                requestAnimationFrame(animate);
+            };
 
-        const updateArrows = () => {
-            prevBtn.style.opacity = current === 0 ? '0.35' : '1';
-            prevBtn.style.pointerEvents = current === 0 ? 'none' : 'auto';
-            nextBtn.style.opacity = current >= maxIndex() ? '0.35' : '1';
-            nextBtn.style.pointerEvents = current >= maxIndex() ? 'none' : 'auto';
-        };
+            track.addEventListener('mouseenter', () => { paused = true; });
+            track.addEventListener('mouseleave', () => { paused = false; });
+            window.addEventListener('resize', () => {
+                offset = 0;
+                previousTimestamp = null;
+                track.style.transform = 'translateX(0)';
+            });
 
-        const goTo = (index) => {
-            const visible = getVisible();
-            current = Math.max(0, Math.min(index, maxIndex()));
-            const cardWidth = cards[0].offsetWidth;
-            track.style.transform = `translateX(-${current * (cardWidth + cardGap())}px)`;
-            updateArrows();
-        };
-
-        prevBtn.addEventListener('click', () => goTo(current - 1));
-        nextBtn.addEventListener('click', () => goTo(current + 1));
-
-        updateArrows();
-        window.addEventListener('resize', () => { current = 0; goTo(0); });
+            requestAnimationFrame(animate);
+        }
     }
 
     // 5. Scroll Animations
